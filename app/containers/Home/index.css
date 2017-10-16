@@ -1,0 +1,63 @@
+
+
+/* Footer Row */
+
+h3 {
+  font-size: 1em;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  height: 2em;
+  line-height: 2em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  font-size: 1.25em;
+  color: black;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: black;
+}
+
+.footer > div {
+  display: inline;
+}
+
+.left, .right {
+  margin: 0 1em;
+}
+
+.left {
+  float: left;
+}
+
+.left > a {
+  margin-left: 1em;
+}
+
+.right {
+  float: right;
+}
+
+@media (max-width: 992px) { 
+  .footer > .right {
+    display: none;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .left {
+    float: none;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
