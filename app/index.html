@@ -2,15 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106881554-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-106881554-1');
-    </script>
     <!-- Make the page mobile compatible -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Allow installing the app to the homescreen -->
@@ -27,6 +18,14 @@
 
     <!-- Font Awsome -->
     <script src="https://use.fontawesome.com/6768d46d98.js"></script>
+
+    <!-- Segment -->
+    <!-- <script>
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+      analytics.load("qMCWJDGi8sCIHRCJg6ZvM2EDSRayoGCw");
+      analytics.page();
+      }}();
+    </script> -->
   </head>
   <body>
     <!-- Display a message if JS has been disabled on the browser. -->
@@ -34,6 +33,5 @@
 
     <!-- The app hooks into this div -->
     <div id="app"></div>
-    <script src="//twemoji.maxcdn.com/2/twemoji.min.js?2.3.0"></script>
   </body>
 </html>

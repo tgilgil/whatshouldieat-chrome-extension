@@ -1,4 +1,6 @@
 {
+  "app.components.Footer.lightspeedturtle": "An initiative of",
+  "app.components.Footer.share": "Share",
   "app.components.Recipe.preparationTime": "Execution Time",
   "app.components.Recipe.seeFullRecipe": "See Full Recipe",
   "app.components.Shareable.header": "This is the Shareable component !",

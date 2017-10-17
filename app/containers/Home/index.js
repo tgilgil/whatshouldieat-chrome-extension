@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Grid, Row, Col } from 'react-bootstrap';
+import queryString from 'query-string';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import { changeLocale } from 'containers/LanguageProvider/actions';
@@ -17,42 +18,31 @@ import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
 import Shareable from 'components/Shareable';
 import Recipe from 'components/Recipe';
 import Footer from 'components/Footer';
-import LoadingBar, { hideLoading } from 'react-redux-loading-bar';
-import { loadEntries } from './actions';
+import { loadEntry } from './actions';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import './index.css';
 
 export class Home extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  componentDidMount() {
-    const { home, loadContent } = this.props;
 
-    if (home.entries === null) {
-      loadContent();
-    }
+  componentDidMount() {
+    const { loadContent } = this.props;
+
+    isItContentPreview(this.props.location.search, loadContent);
+    loadContent();
   }
 
   render() {
-    const { home, locale, changeLanguage, hideLoadingBar } = this.props;
-
-    let randomEntry = null;
-
-    if (home.entries != null && home.entries.length > 0) {
-      const localizedEntries = home.entries.filter((entry) => entry.fields.language === locale.charAt(0).toUpperCase() + locale.slice(1));
-      randomEntry = localizedEntries[Math.floor(Math.random() * localizedEntries.length)];
-
-      // hideLoadingBar();
-    }
+    const { home, changeLanguage } = this.props;
 
     return (
       <div style={{ height: '100%', width: '100%' }}>
-        <LoadingBar />
         <Grid className="App">
           <div className="page-wrap">
             <Row className="content-row">
               <Col lg={6} lgOffset={6}>
-                { defineType(randomEntry) }
+                { defineType(home.entry) }
               </Col>
             </Row>
             <Footer changeLanguage={changeLanguage} />
@@ -66,8 +56,15 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
 Home.propTypes = {
   changeLanguage: PropTypes.func.isRequired,
   home: PropTypes.any,
-  locale: PropTypes.any,
   loadContent: PropTypes.func.isRequired,
+  location: PropTypes.any,
+};
+
+const isItContentPreview = (locationSearch, action) => {
+  const qs = queryString.parse(locationSearch);
+  if (Object.keys(qs).length !== 0 && qs.constructor !== Object) {
+    action(qs.entry);
+  }
 };
 
 const defineType = (randomEntry) => {
@@ -93,8 +90,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     changeLanguage: (locale) => dispatch(changeLocale(locale)),
-    loadContent: () => dispatch(loadEntries()),
-    hideLoadingBar: () => dispatch(hideLoading()),
+    loadContent: () => dispatch(loadEntry()),
   };
 }
 

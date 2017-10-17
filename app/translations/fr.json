@@ -1,4 +1,6 @@
 {
+  "app.components.Footer.lightspeedturtle": "Une initiative de",
+  "app.components.Footer.share": "Partagez",
   "app.components.Recipe.preparationTime": "Temps d'exécution",
   "app.components.Recipe.seeFullRecipe": "Voir la recette",
   "app.components.Shareable.header": "",

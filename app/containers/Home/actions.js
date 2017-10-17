@@ -5,20 +5,21 @@
  */
 
 import {
-  LOAD_ENTRIES,
-  ENTRIES_LOADED,
+  LOAD_ENTRY,
+  ENTRY_LOADED,
 } from './constants';
 
-export function loadEntries() {
+export function loadEntry(id) {
   return {
-    type: LOAD_ENTRIES,
+    type: LOAD_ENTRY,
+    id,
   };
 }
 
-export function entriesLoaded(entries) {
+export function entryLoaded(entry) {
   return {
-    type: ENTRIES_LOADED,
-    entries,
+    type: ENTRY_LOADED,
+    entry,
   };
 }
 

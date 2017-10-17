@@ -7,6 +7,9 @@ import { fromJS } from 'immutable';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 
+import { REHYDRATE } from 'redux-persist/constants';
+import createActionBuffer from 'redux-action-buffer';
+
 import { persistStore } from 'redux-persist-immutable';
 
 import createReducer from './reducers';
@@ -17,9 +20,11 @@ export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
+  // 3. Buffer actions until rehydration has been processed
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
+    createActionBuffer(REHYDRATE),
   ];
 
   const enhancers = [
@@ -43,10 +48,9 @@ export default function configureStore(initialState = {}, history) {
   const store = createStore(
     createReducer(),
     fromJS(initialState),
-    composeEnhancers(...enhancers)
+    composeEnhancers(...enhancers),
   );
 
-  // Should the home state be persisted too?
   persistStore(store, { whitelist: ['language'] });
 
   // Extensions

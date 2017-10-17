@@ -19,7 +19,7 @@ class Footer extends React.PureComponent { // eslint-disable-line react/prefer-s
           <a onClick={() => this.props.changeLanguage('fr')} href="#lang">FR</a>
           <a onClick={() => this.props.changeLanguage('en')} href="#lang">EN</a>
         </div>
-        <div className="right"><FormattedMessage {...messages.lightspeedturtle} /><a className="underline" target="_blank" href="https://www.facebook.com/lightspeedturtle">Lightspeed Turtle</a></div>
+        <div className="right"><FormattedMessage {...messages.lightspeedturtle} /><a className="underline" target="_blank" href="https://www.facebook.com/lightspeedturtle"> Lightspeed Turtle</a></div>
       </footer>
     );
   }

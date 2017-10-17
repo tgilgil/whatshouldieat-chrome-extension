@@ -11,4 +11,3 @@ const client = createClient({
 export function fetchEntries() {
   return client.getEntries();
 }
-

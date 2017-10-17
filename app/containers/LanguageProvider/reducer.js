@@ -21,12 +21,15 @@ const initialState = fromJS({
 
 function languageProviderReducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE: // locale is presisted with redux-persist-immutable (see configureStore.js).
+    case REHYDRATE:
       return state
-        .set('locale', action.payload.language.get('locale'));
+        .set('locale', localStorage.getItem('lang') || 'en');
+
     case CHANGE_LOCALE:
+      localStorage.setItem('lang', action.locale);
       return state
         .set('locale', action.locale);
+
     default:
       return state;
   }
