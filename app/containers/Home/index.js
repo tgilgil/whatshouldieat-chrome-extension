@@ -29,8 +29,9 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
   componentDidMount() {
     const { loadContent } = this.props;
 
-    isItContentPreview(this.props.location.search, loadContent);
-    loadContent();
+    if (!isItContentPreview(this.props.location.search, loadContent)) {
+      loadContent();
+    }
   }
 
   render() {
@@ -65,7 +66,9 @@ const isItContentPreview = (locationSearch, action) => {
   const qs = queryString.parse(locationSearch);
   if (Object.keys(qs).length !== 0 && qs.constructor !== Object) {
     action(qs.entry);
+    return true;
   }
+  return false;
 };
 
 const defineType = (randomEntry) => {
@@ -91,7 +94,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     changeLanguage: (locale) => dispatch(changeLocale(locale)),
-    loadContent: () => dispatch(loadEntry()),
+    loadContent: (id) => dispatch(loadEntry(id)),
   };
 }
 
