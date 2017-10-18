@@ -34,7 +34,7 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
   }
 
   render() {
-    const { home, changeLanguage } = this.props;
+    const { home, changeLanguage, locale } = this.props;
 
     return (
       <div style={{ height: '100%', width: '100%' }}>
@@ -45,7 +45,7 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
                 { defineType(home.entry) }
               </Col>
             </Row>
-            <Footer changeLanguage={changeLanguage} />
+            <Footer currentLocale={locale} changeLanguage={changeLanguage} />
           </div>
         </Grid>
       </div>
@@ -57,6 +57,7 @@ Home.propTypes = {
   changeLanguage: PropTypes.func.isRequired,
   home: PropTypes.any,
   loadContent: PropTypes.func.isRequired,
+  locale: PropTypes.string.isRequired,
   location: PropTypes.any,
 };
 
