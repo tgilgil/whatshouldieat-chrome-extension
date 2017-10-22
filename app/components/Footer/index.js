@@ -12,6 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const selected = {
+  textDecoration: 'underline',
   opacity: 0.3,
   pointerEvents: 'none',
   cursor: 'default',
