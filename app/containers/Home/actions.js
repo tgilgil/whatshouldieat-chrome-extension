@@ -7,6 +7,7 @@
 import {
   LOAD_ENTRY,
   ENTRY_LOADED,
+  WEB_VERSION_LIMIT_REACHED,
 } from './constants';
 
 export function loadEntry(id) {
@@ -23,3 +24,9 @@ export function entryLoaded(entry) {
   };
 }
 
+export function webVersionLimitReached(lastEntry) {
+  return {
+    type: WEB_VERSION_LIMIT_REACHED,
+    lastEntry,
+  };
+}
