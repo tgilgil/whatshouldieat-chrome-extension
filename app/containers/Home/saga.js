@@ -3,34 +3,38 @@ import { takeLatest, put, call, select } from 'redux-saga/effects';
 import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
 import { isWebVersion } from 'utils/globalHelpers';
 import { LOAD_ENTRY } from './constants';
-import { entryLoaded, webVersionLimitReached } from './actions';
-import EntriesPool from './EntriesPool';
+import { entryLoaded, webVersionLimitReached, cookItPromoHasBeenDisplayed } from './actions';
+import EntriesService from './Entries/EntriesService';
 
 import * as api from './api';
 
 export function* loadEntry(action) {
   const locale = yield select(makeSelectLocale());
   const response = yield call(api.fetchEntries);
+  let cookItResponse;
 
-  const pool = new EntriesPool(response.items, locale);
+  let entriesService;
 
-  const localized = pool.localized;
+  try {
+    cookItResponse = yield call(api.fetchCookItRecipes);
+    entriesService = new EntriesService(response.items, cookItResponse.recipes, locale);
+  } catch (e) {
+    entriesService = new EntriesService(response.items, null, locale);
+  }
 
-  if (pool.isLimitReached && isWebVersion()) {
-    yield put(webVersionLimitReached(pool.lastSeen));
-  } else {
-    let notSeen = pool.notSeen();
-
-    if (notSeen.length === 0) {
-      notSeen = localized; // Shit. User has seen everything. RESET! ABORT MISSION!
-      pool.reset();
-    }
-
-    if (action.id) {
-      yield put(entryLoaded(pool.get(action.id)));
+  if (entriesService.isLimitReached && isWebVersion()) {
+    yield put(webVersionLimitReached(entriesService.lastSeen));
+  } else if (action.id) {
+    yield put(entryLoaded(entriesService.get(action.id)));
+  } else if (entriesService.shouldDisplayCookItPromo && locale === 'fr') {
+    if (!cookItResponse || !cookItResponse.recipes) {
+      yield put(entryLoaded(entriesService.random()));
     } else {
-      yield put(entryLoaded(pool.random()));
+      yield put(entryLoaded(entriesService.getPromo()));
+      yield put(cookItPromoHasBeenDisplayed());
     }
+  } else {
+    yield put(entryLoaded(entriesService.random()));
   }
 }
 

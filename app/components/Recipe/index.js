@@ -19,12 +19,12 @@ class Recipe extends React.PureComponent { // eslint-disable-line react/prefer-s
   render() {
     return (
       <ContentDescription>
-        <Background src={this.props.recipe.fields.image.fields.file.url} />
-        <Logo url={this.props.recipe.fields.blog} src={`https:${this.props.recipe.fields.logo.fields.file.url}`} />
-        <MainTitle title={this.props.recipe.fields.name} />
-        <ExecutionTime preparationTime={this.props.recipe.fields.preparationTime} />
-        <Portions portions={this.props.recipe.fields.portions} />
-        <FullRecipeButton url={this.props.recipe.fields.blog} />
+        <Background src={this.props.recipe.imageUrl} />
+        <Logo url={this.props.recipe.link} src={`https:${this.props.recipe.logoUrl}`} />
+        <MainTitle title={this.props.recipe.name} />
+        <ExecutionTime preparationTime={this.props.recipe.execution} />
+        <Portions portions={this.props.recipe.portions} />
+        <FullRecipeButton url={this.props.recipe.link} />
       </ContentDescription>
     );
   }

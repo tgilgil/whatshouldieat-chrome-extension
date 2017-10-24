@@ -8,6 +8,7 @@ import {
   LOAD_ENTRY,
   ENTRY_LOADED,
   WEB_VERSION_LIMIT_REACHED,
+  COOKIT_PROMO_HAS_BEEN_DISPLAYED,
 } from './constants';
 
 export function loadEntry(id) {
@@ -28,5 +29,11 @@ export function webVersionLimitReached(lastEntry) {
   return {
     type: WEB_VERSION_LIMIT_REACHED,
     lastEntry,
+  };
+}
+
+export function cookItPromoHasBeenDisplayed() {
+  return {
+    type: COOKIT_PROMO_HAS_BEEN_DISPLAYED,
   };
 }

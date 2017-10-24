@@ -97,6 +97,8 @@ module.exports = (options) => ({
       },
     }),
     new webpack.NamedModulesPlugin(),
+    // Fixes webpack warning for moment.js
+    // new webpack.IgnorePlugin(/\.\/locale$/),
   ]),
   resolve: {
     modules: ['app', 'node_modules'],

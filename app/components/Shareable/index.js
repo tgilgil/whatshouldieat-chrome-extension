@@ -18,10 +18,10 @@ class Shareable extends React.PureComponent { // eslint-disable-line react/prefe
   render() {
     return (
       <ContentDescription>
-        <Background src={this.props.shareable.fields.image.fields.file.url} />
+        <Background src={this.props.shareable.imageUrl} />
         <Logo src={BrandLogo} />
-        <MainTitle title={this.props.shareable.fields.name} />
-        <Markdown source={this.props.shareable.fields.description} />
+        <MainTitle title={this.props.shareable.name} />
+        <Markdown source={this.props.shareable.description} />
       </ContentDescription>
     );
   }

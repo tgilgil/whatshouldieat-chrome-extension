@@ -81,7 +81,7 @@ const isItContentPreview = (locationSearch, action) => {
 
 const defineType = (randomEntry) => {
   if (randomEntry) {
-    switch (randomEntry.sys.contentType.sys.id) {
+    switch (randomEntry.contentType) {
       case 'recipe':
         return <Recipe recipe={randomEntry} />;
       case 'shareable':
