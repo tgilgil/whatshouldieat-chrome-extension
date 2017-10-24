@@ -33,10 +33,6 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
     if (!isItContentPreview(this.props.location.search, loadContent)) {
       loadContent();
     }
-
-    console.log(window.location.hostname);
-
-    console.log('FUCK!');
   }
 
   render() {
