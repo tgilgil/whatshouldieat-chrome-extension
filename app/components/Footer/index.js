@@ -12,10 +12,14 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const selected = {
-  textDecoration: 'underline',
-  opacity: 0.3,
+  fontWeight: 'bold',
   pointerEvents: 'none',
   cursor: 'default',
+  color: 'black',
+};
+
+const unselected = {
+  color: 'gray',
 };
 
 const VerticalAlignMiddleA = styled.a`
@@ -33,8 +37,8 @@ class Footer extends React.PureComponent { // eslint-disable-line react/prefer-s
     return (
       <footer className="footer">
         <div className="left" style={{ verticalAlign: 'middle' }}>
-          <VerticalAlignMiddleA style={(locale === 'fr' ? selected : {})} onClick={() => this.props.changeLanguage('fr')} href="#lang">FR</VerticalAlignMiddleA>
-          <VerticalAlignMiddleA style={(locale === 'en' ? selected : {})} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
+          <VerticalAlignMiddleA style={(locale === 'fr' ? selected : unselected)} onClick={() => this.props.changeLanguage('fr')} href="#lang">FR</VerticalAlignMiddleA>
+          <VerticalAlignMiddleA style={(locale === 'en' ? selected : unselected)} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
         </div>
         <div className="right">
           <VerticalAlignMiddleSpan><FormattedMessage {...messages.lightspeedturtle} /></VerticalAlignMiddleSpan>&nbsp;

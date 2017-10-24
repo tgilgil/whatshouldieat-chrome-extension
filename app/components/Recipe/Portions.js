@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledH2 = styled.h2`
-  font-size: 1.25em;
+  font-size: 1.50em;
   margin-top: 0.50em;
 `;
 

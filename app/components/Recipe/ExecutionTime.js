@@ -13,6 +13,7 @@ import messages from './messages';
 
 const StyledH2 = styled.h2`
   margin-bottom: 0;
+  font-size: 2em;
 `;
 
 class ExecutionTime extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
