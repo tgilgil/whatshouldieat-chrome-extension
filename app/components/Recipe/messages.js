@@ -12,6 +12,6 @@ export default defineMessages({
   },
   seeFullRecipe: {
     id: 'app.components.Recipe.seeFullRecipe',
-    defaultMessage: 'See Full Recipe',
+    defaultMessage: 'See full recipe',
   },
 });
