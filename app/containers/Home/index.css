@@ -11,8 +11,8 @@ h3 {
   bottom: 0;
   width: 100%;
   background-color: white;
-  height: 2.5em;
-  line-height: 2em;
+  height: 3.5em;
+  line-height: 3.25em;
   padding-bottom: 0;
   margin-bottom: 0;
   font-size: 1.25em;
@@ -34,6 +34,7 @@ h3 {
 
 .left {
   float: left;
+  padding-left: 0.15em;
 }
 
 .left > a:nth-child(2) {
@@ -42,6 +43,7 @@ h3 {
 
 .right {
   float: right;
+  padding-right: 0.15em;
 }
 
 @media (max-width: 992px) { 

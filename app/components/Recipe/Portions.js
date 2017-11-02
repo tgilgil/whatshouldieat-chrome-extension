@@ -11,6 +11,7 @@ import styled from 'styled-components';
 const StyledH2 = styled.h2`
   font-size: 1.50em;
   margin-top: 0.50em;
+  margin-bottom: 1.6em;
 `;
 
 class Portions extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function

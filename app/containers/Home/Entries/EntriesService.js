@@ -43,6 +43,7 @@ class EntriesService {
     });
 
     // map default language since cookit does no give any.
+    // CookIt : Todo once they get their shit together. :)
     // const mappedCookItEntries = this.cookitEntries.map((entry))
 
     this.entries = mappedContentfulEntries;

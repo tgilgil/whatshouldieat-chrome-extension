@@ -19,7 +19,7 @@ const StyledH2 = styled.h2`
 class ExecutionTime extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <StyledH2><FormattedMessage {...messages.preparationTime} /> : {this.props.preparationTime}</StyledH2>
+      <StyledH2><FormattedMessage {...messages.preparationTime} /> - {this.props.preparationTime}</StyledH2>
     );
   }
 }
