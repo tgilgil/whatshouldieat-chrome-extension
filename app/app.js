@@ -28,6 +28,9 @@ import LanguageProvider from 'containers/LanguageProvider';
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import '!file-loader?name=[name].[ext]!./images/android-chrome-144x144.png';
+import '!file-loader?name=[name].[ext]!./images/16x16.png';
+import '!file-loader?name=[name].[ext]!./images/48x48.png';
+import '!file-loader?name=[name].[ext]!./images/128x128.png';
 import '!file-loader?name=[name].[ext]!./manifest.json';
 /* eslint-enable import/no-unresolved, import/extensions */
 
@@ -46,7 +49,7 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 // Set up Google Analytics
-ReactGA.initialize('UA-106881554-2');
+ReactGA.initialize('UA-106881554-1');
 
 const render = (messages) => {
   ReactDOM.render(

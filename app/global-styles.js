@@ -8,12 +8,19 @@ injectGlobal`
   body {
     height: 100%;
     width: 100%;
+    background-color: black;
+    /* animation: fadein 3s; */
   }
 
   html {
     position: relative;
     min-height: 100%;
   }
+
+  /* @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  } */
 
   body {
     font-family: 'Ubuntu Condensed', Helvetica, Arial, sans-serif;
