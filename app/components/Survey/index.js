@@ -22,6 +22,7 @@ const StyledIframe = styled.iframe`
   border: none;
   width: 100%;
   min-height: 400px;
+  overflow: hidden;
 `;
 
 const FrenchSurveyUrl = 'https://travis139.typeform.com/to/YnUnZ9';
@@ -69,7 +70,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
             bodyStyle={{ minHeight: '400px' }}
             contentStyle={{ minHeight: '400px' }}
           >
-            <StyledIframe title="survey" src={localizedSurveyUrl}></StyledIframe>
+            <StyledIframe title="survey" src={localizedSurveyUrl} scrolling="no"></StyledIframe>
           </Dialog>
         </div>);
       }
