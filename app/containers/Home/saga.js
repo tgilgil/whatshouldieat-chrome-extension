@@ -3,7 +3,7 @@ import { takeLatest, put, call, select } from 'redux-saga/effects';
 import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
 import { isWebVersion } from 'utils/globalHelpers';
 import { LOAD_ENTRY } from './constants';
-import { entryLoaded, webVersionLimitReached, cookItPromoHasBeenDisplayed } from './actions';
+import { entryLoaded, webVersionLimitReached, cookItPromoHasBeenDisplayed, displaySurvey } from './actions';
 import EntriesService from './Entries/EntriesService';
 
 import * as api from './api';
@@ -26,6 +26,9 @@ export function* loadEntry(action) {
     yield put(webVersionLimitReached(entriesService.lastSeen));
   } else if (action.id) {
     yield put(entryLoaded(entriesService.get(action.id)));
+
+    console.log('verify survey');
+    if (entriesService.verifyIfSurveyShouldBeShown()) yield put(displaySurvey());
   } else if (entriesService.shouldDisplayCookItPromo && locale === 'fr') {
     if (!cookItResponse || !cookItResponse.recipes) {
       yield put(entryLoaded(entriesService.random()));
@@ -33,9 +36,7 @@ export function* loadEntry(action) {
       yield put(entryLoaded(entriesService.getPromo()));
       yield put(cookItPromoHasBeenDisplayed());
     }
-  } else {
-    yield put(entryLoaded(entriesService.random()));
-  }
+  } else yield put(entryLoaded(entriesService.random()));
 }
 
 export default function* rootSaga() {

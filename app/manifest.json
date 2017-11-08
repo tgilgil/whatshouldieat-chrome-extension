@@ -13,6 +13,6 @@
    "48": "48x48.png",
    "128": "128x128.png" 
  },
- "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://www.google-analytics.com https://ssl.google-analytics.com https://use.fontawesome.com; object-src 'self'",
+ "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://www.google-analytics.com https://ssl.google-analytics.com https://use.fontawesome.com https://embed.typeform.com; object-src 'self'",
  "permissions": []
 }

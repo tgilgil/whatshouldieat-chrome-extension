@@ -66,6 +66,11 @@ class EntriesService {
     return this.entries.filter((e) => e.id === alreadySeen[alreadySeen.length - 1])[0];
   }
 
+  verifyIfSurveyShouldBeShown() {
+    console.log('surveyShown_1 : ' + localStorage.getItem('surveyShown_1'));
+    return this.alreadySeen.length > 10 && !localStorage.getItem('surveyShown_1');
+  }
+
   notSeen() {
     return this.localized.filter((e) => !this.alreadySeen.some((id) => id === e.id));
   }

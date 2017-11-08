@@ -11,11 +11,16 @@ import {
   ENTRY_LOADED,
   WEB_VERSION_LIMIT_REACHED,
   COOKIT_PROMO_HAS_BEEN_DISPLAYED,
+  DISPLAY_SURVEY,
+  CANCEL_SURVEY,
+  GO_TO_NEXT_SURVEY_STEP,
 } from './constants';
 
 const initialState = fromJS({
   entry: null,
   limitReached: false,
+  showSurvey: true,
+  surveyStep: 1,
 });
 
 function homeReducer(state = initialState, action) {
@@ -35,6 +40,20 @@ function homeReducer(state = initialState, action) {
     case COOKIT_PROMO_HAS_BEEN_DISPLAYED: {
       localStorage.setItem('lastTimePromoHasBeenDisplayed', moment());
       return state;
+    }
+
+    case DISPLAY_SURVEY: {
+      localStorage.setItem('surveyShown_1', true);
+      return state.set('showSurvey', true);
+    }
+
+    case CANCEL_SURVEY: {
+      localStorage.setItem('surveyShown_1', true);
+      return state.set('showSurvey', false);
+    }
+
+    case GO_TO_NEXT_SURVEY_STEP: {
+      return state.set('surveyStep', action.step);
     }
 
     default:

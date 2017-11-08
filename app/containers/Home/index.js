@@ -19,7 +19,7 @@ import Shareable from 'components/Shareable';
 import Recipe from 'components/Recipe';
 import Footer from 'components/Footer';
 import LimitReachedPrompt from './LimitReachedPrompt';
-import { loadEntry } from './actions';
+import { loadEntry, goToSurveyStep, cancelSurvey as cancelSurveyAction } from './actions';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -36,7 +36,7 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
   }
 
   render() {
-    const { home, changeLanguage, locale } = this.props;
+    const { home, changeLanguage, locale, goToStep, cancelSurvey } = this.props;
 
     return (
       <div style={{ height: '100%', width: '100%' }}>
@@ -51,7 +51,14 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
                 }
               </Col>
             </Row>
-            <Footer currentLocale={locale} changeLanguage={changeLanguage} />
+            <Footer
+              currentLocale={locale}
+              changeLanguage={changeLanguage}
+              showSurvey={home.showSurvey}
+              surveyStep={home.surveyStep}
+              goToStep={goToStep}
+              cancelSurvey={cancelSurvey}
+            />
           </div>
         </Grid>
       </div>
@@ -68,6 +75,8 @@ Home.propTypes = {
   loadContent: PropTypes.func.isRequired,
   locale: PropTypes.string.isRequired,
   location: PropTypes.any,
+  goToStep: PropTypes.func.isRequired,
+  cancelSurvey: PropTypes.func.isRequired,
 };
 
 const isItContentPreview = (locationSearch, action) => {
@@ -103,6 +112,8 @@ function mapDispatchToProps(dispatch) {
   return {
     changeLanguage: (locale) => dispatch(changeLocale(locale)),
     loadContent: (id) => dispatch(loadEntry(id)),
+    goToStep: (step) => dispatch(goToSurveyStep(step)),
+    cancelSurvey: () => dispatch(cancelSurveyAction()),
   };
 }
 

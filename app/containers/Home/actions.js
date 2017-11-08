@@ -9,6 +9,9 @@ import {
   ENTRY_LOADED,
   WEB_VERSION_LIMIT_REACHED,
   COOKIT_PROMO_HAS_BEEN_DISPLAYED,
+  DISPLAY_SURVEY,
+  CANCEL_SURVEY,
+  GO_TO_NEXT_SURVEY_STEP,
 } from './constants';
 
 export function loadEntry(id) {
@@ -35,5 +38,24 @@ export function webVersionLimitReached(lastEntry) {
 export function cookItPromoHasBeenDisplayed() {
   return {
     type: COOKIT_PROMO_HAS_BEEN_DISPLAYED,
+  };
+}
+
+export function displaySurvey() {
+  return {
+    type: DISPLAY_SURVEY,
+  };
+}
+
+export function cancelSurvey() {
+  return {
+    type: CANCEL_SURVEY,
+  };
+}
+
+export function goToSurveyStep(step) {
+  return {
+    type: GO_TO_NEXT_SURVEY_STEP,
+    step,
   };
 }
