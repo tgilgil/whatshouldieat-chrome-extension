@@ -34,4 +34,12 @@ export default defineMessages({
     id: 'app.components.Survey.NegativeResponse2',
     defaultMessage: 'No Thanks',
   },
+  Close: {
+    id: 'app.components.Survey.Close',
+    defaultMessage: 'Close',
+  },
+  ThankYou: {
+    id: 'app.components.Survey.ThankYou',
+    defaultMessage: 'Thank you 💙',
+  },
 });

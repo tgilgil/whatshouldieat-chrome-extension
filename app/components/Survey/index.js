@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Dialog from 'material-ui/Dialog';
 
 import SurveyButton from 'components/Buttons/SurveyButton';
 
@@ -14,7 +15,13 @@ import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const VerticalAlignMiddleSpan = styled.span`
-vertical-align: middle;
+  vertical-align: middle;
+`;
+
+const StyledIframe = styled.iframe`
+  border: none;
+  width: 100%;
+  min-height: 400px;
 `;
 
 const FrenchSurveyUrl = 'https://travis139.typeform.com/to/YnUnZ9';
@@ -39,7 +46,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
         return (<div>
           <VerticalAlignMiddleSpan><FormattedHTMLMessage {...messages.CallToActionPositive} /></VerticalAlignMiddleSpan>
           <SurveyButton onClick={() => this.props.cancelSurvey()}><FormattedMessage {...messages.NegativeResponse2} /></SurveyButton>
-          <SurveyButton onClick={() => triggerTypeform(true, this.props.cancelSurvey)} href={localizedSurveyUrl} data-mode="popup" target="_blank"><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
+          <SurveyButton onClick={() => this.props.goToStep(4)}><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
         </div>);
       }
 
@@ -48,7 +55,29 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
         return (<div>
           <VerticalAlignMiddleSpan><FormattedMessage {...messages.CallToActionNegative} /></VerticalAlignMiddleSpan>
           <SurveyButton onClick={() => this.props.cancelSurvey()}><FormattedMessage {...messages.NegativeResponse2} /></SurveyButton>
-          <SurveyButton onClick={() => triggerTypeform(false, this.props.cancelSurvey)} href={localizedSurveyUrl} data-mode="popup" target="_blank"><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
+          <SurveyButton onClick={() => this.props.goToStep(4)}><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
+        </div>);
+      }
+
+      // Trigger modal with embeded Typeform survey
+      case 4: {
+        return (<div>
+          <Dialog
+            actions={<SurveyButton onClick={() => this.props.goToStep(5)}><FormattedMessage {...messages.Close} /></SurveyButton>}
+            modal
+            open
+            bodyStyle={{ minHeight: '400px' }}
+            contentStyle={{ minHeight: '400px' }}
+          >
+            <StyledIframe title="survey" src={localizedSurveyUrl}></StyledIframe>
+          </Dialog>
+        </div>);
+      }
+
+      // Thank the user :)
+      case 5: {
+        return (<div>
+          <VerticalAlignMiddleSpan><FormattedMessage {...messages.ThankYou} /></VerticalAlignMiddleSpan>
         </div>);
       }
 
@@ -56,14 +85,6 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
         return null;
     }
   }
-}
-
-function triggerTypeform(respondedPositively, cancelSurvey) {
-  cancelSurvey();
-
-  // TODO : Trigger embeded survey from Typeform;
-
-  // console.log(`Typeform triggered - respondedPositively: ${respondedPositively}`);
 }
 
 Survey.propTypes = {
