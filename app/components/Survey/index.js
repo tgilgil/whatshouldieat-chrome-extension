@@ -10,7 +10,7 @@ import styled from 'styled-components';
 
 import SurveyButton from 'components/Buttons/SurveyButton';
 
-import { injectIntl, FormattedHTMLMessage, FormattedMessage } from 'react-intl';
+import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const VerticalAlignMiddleSpan = styled.span`
@@ -63,7 +63,7 @@ function triggerTypeform(respondedPositively, cancelSurvey) {
 
   // TODO : Trigger embeded survey from Typeform;
 
-  console.log(`Typeform triggered - respondedPositively: ${respondedPositively}`);
+  // console.log(`Typeform triggered - respondedPositively: ${respondedPositively}`);
 }
 
 Survey.propTypes = {

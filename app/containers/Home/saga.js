@@ -27,7 +27,6 @@ export function* loadEntry(action) {
   } else if (action.id) {
     yield put(entryLoaded(entriesService.get(action.id)));
 
-    console.log('verify survey');
     if (entriesService.verifyIfSurveyShouldBeShown()) yield put(displaySurvey());
   } else if (entriesService.shouldDisplayCookItPromo && locale === 'fr') {
     if (!cookItResponse || !cookItResponse.recipes) {
