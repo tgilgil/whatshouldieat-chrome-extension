@@ -25,12 +25,16 @@ const StyledIframe = styled.iframe`
   overflow: hidden;
 `;
 
-const FrenchSurveyUrl = 'https://travis139.typeform.com/to/YnUnZ9';
-const EnglishSurveyUrl = 'https://travis139.typeform.com/to/YnUnZ9';
+const PositiveFrenchSurveyUrl = 'https://travis139.typeform.com/to/GWHqNz';
+const PositiveEnglishSurveyUrl = 'https://travis139.typeform.com/to/c45lyJ';
+
+const NegativeFrenchSurveyUrl = 'https://travis139.typeform.com/to/fTy2CL';
+const NegativeEnglishSurveyUrl = 'https://travis139.typeform.com/to/Mepb8J';
 
 class Survey extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    const localizedSurveyUrl = this.props.locale === 'fr' ? FrenchSurveyUrl : EnglishSurveyUrl;
+    const localizedNegativeSurveyUrl = this.props.locale === 'fr' ? NegativeFrenchSurveyUrl : NegativeEnglishSurveyUrl;
+    const localizedPositiveSurveyUrl = this.props.locale === 'fr' ? PositiveFrenchSurveyUrl : PositiveEnglishSurveyUrl;
 
     switch (this.props.step) {
       case 1: {
@@ -47,7 +51,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
         return (<div>
           <VerticalAlignMiddleSpan><FormattedHTMLMessage {...messages.CallToActionPositive} /></VerticalAlignMiddleSpan>
           <SurveyButton onClick={() => this.props.cancelSurvey()}><FormattedMessage {...messages.NegativeResponse2} /></SurveyButton>
-          <SurveyButton onClick={() => this.props.goToStep(4)}><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
+          <SurveyButton onClick={() => this.props.goToStep(5)}><FormattedMessage {...messages.PositiveResponse2} /></SurveyButton>
         </div>);
       }
 
@@ -60,23 +64,38 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
         </div>);
       }
 
-      // Trigger modal with embeded Typeform survey
+      // Trigger modal with embeded NEGATIVE Typeform survey
       case 4: {
         return (<div>
           <Dialog
-            actions={<SurveyButton onClick={() => this.props.goToStep(5)}><FormattedMessage {...messages.Close} /></SurveyButton>}
+            actions={<SurveyButton onClick={() => this.props.goToStep(6)}><FormattedMessage {...messages.Close} /></SurveyButton>}
             modal
             open
             bodyStyle={{ minHeight: '400px' }}
             contentStyle={{ minHeight: '400px' }}
           >
-            <StyledIframe title="survey" src={localizedSurveyUrl} scrolling="no"></StyledIframe>
+            <StyledIframe title="survey" src={localizedNegativeSurveyUrl} scrolling="no"></StyledIframe>
+          </Dialog>
+        </div>);
+      }
+
+      // Trigger modal with embeded POSITIVE Typeform survey
+      case 5: {
+        return (<div>
+          <Dialog
+            actions={<SurveyButton onClick={() => this.props.goToStep(6)}><FormattedMessage {...messages.Close} /></SurveyButton>}
+            modal
+            open
+            bodyStyle={{ minHeight: '400px' }}
+            contentStyle={{ minHeight: '400px' }}
+          >
+            <StyledIframe title="survey" src={localizedPositiveSurveyUrl} scrolling="no"></StyledIframe>
           </Dialog>
         </div>);
       }
 
       // Thank the user :)
-      case 5: {
+      case 6: {
         return (<div>
           <VerticalAlignMiddleSpan><FormattedMessage {...messages.ThankYou} /></VerticalAlignMiddleSpan>
         </div>);
