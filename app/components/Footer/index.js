@@ -31,16 +31,34 @@ const VerticalAlignMiddleSpan = styled.span`
   vertical-align: middle;
 `;
 
+// const CenteredRefreshButton = styled.div`
+//   clear: both;
+//   margin-left: 8em;
+//   width: 100px;
+//   height: 100px;
+//   background-color: white;
+//   height: 5em;
+//   border-radius: 50%;
+//   position: absolute;
+//   bottom: 1em;
+//   text-align: center;
+//   vertical-align: middle;
+//   line-height: -5.5em;
+// `;
+
 class Footer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const locale = this.props.currentLocale;
 
     return (
       <footer className="footer">
-        <div className="left" style={{ verticalAlign: 'middle' }}>
+        <div className="left" style={{ }}>
           <VerticalAlignMiddleA style={(locale === 'fr' ? selected : unselected)} onClick={() => this.props.changeLanguage('fr')} href="#lang">FR</VerticalAlignMiddleA>
           <VerticalAlignMiddleA style={(locale === 'en' ? selected : unselected)} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
         </div>
+
+        {/* <CenteredRefreshButton><i className="fa fa-refresh fa-6"></i></CenteredRefreshButton> */}
+
         <div className="right">
           {
             this.props.showSurvey

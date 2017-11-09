@@ -26,8 +26,6 @@ export function* loadEntry(action) {
     yield put(webVersionLimitReached(entriesService.lastSeen));
   } else if (action.id) {
     yield put(entryLoaded(entriesService.get(action.id)));
-
-    if (entriesService.verifyIfSurveyShouldBeShown()) yield put(displaySurvey());
   } else if (entriesService.shouldDisplayCookItPromo && locale === 'fr') {
     if (!cookItResponse || !cookItResponse.recipes) {
       yield put(entryLoaded(entriesService.random()));
@@ -35,7 +33,10 @@ export function* loadEntry(action) {
       yield put(entryLoaded(entriesService.getPromo()));
       yield put(cookItPromoHasBeenDisplayed());
     }
-  } else yield put(entryLoaded(entriesService.random()));
+  } else {
+    yield put(entryLoaded(entriesService.random()));
+    if (entriesService.verifyIfSurveyShouldBeShown()) yield put(displaySurvey());
+  }
 }
 
 export default function* rootSaga() {

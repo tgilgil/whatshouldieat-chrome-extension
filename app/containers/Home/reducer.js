@@ -19,7 +19,7 @@ import {
 const initialState = fromJS({
   entry: null,
   limitReached: false,
-  showSurvey: true,
+  showSurvey: false,
   surveyStep: 1,
 });
 
