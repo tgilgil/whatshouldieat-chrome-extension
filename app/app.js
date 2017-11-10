@@ -13,13 +13,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import ReactGA from 'react-ga';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import createHistory from 'history/createBrowserHistory';
 import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from 'containers/App';
+
+import { GoogleAnalytics } from 'utils/tracking';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
@@ -49,7 +50,8 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 // Set up Google Analytics
-ReactGA.initialize('UA-106881554-1');
+const ga = new GoogleAnalytics();
+ga.initialize();
 
 const render = (messages) => {
   ReactDOM.render(

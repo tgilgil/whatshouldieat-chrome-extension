@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Dialog from 'material-ui/Dialog';
 
+import { GoogleAnalytics } from 'utils/tracking';
+
 import SurveyButton from 'components/Buttons/SurveyButton';
 
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
@@ -33,6 +35,8 @@ const NegativeEnglishSurveyUrl = 'https://travis139.typeform.com/to/Mepb8J';
 
 class Survey extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const ga = new GoogleAnalytics();
+
     const localizedNegativeSurveyUrl = this.props.locale === 'fr' ? NegativeFrenchSurveyUrl : NegativeEnglishSurveyUrl;
     const localizedPositiveSurveyUrl = this.props.locale === 'fr' ? PositiveFrenchSurveyUrl : PositiveEnglishSurveyUrl;
 
@@ -96,6 +100,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
 
       // Thank the user :)
       case 6: {
+        ga.track('/surveycompleted');
         return (<div>
           <VerticalAlignMiddleSpan><FormattedMessage {...messages.ThankYou} /></VerticalAlignMiddleSpan>
         </div>);
