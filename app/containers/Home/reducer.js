@@ -43,7 +43,6 @@ function homeReducer(state = initialState, action) {
     }
 
     case DISPLAY_SURVEY: {
-      localStorage.setItem('surveyShown_1', true);
       return state.set('showSurvey', true);
     }
 

@@ -101,6 +101,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
       // Thank the user :)
       case 6: {
         ga.track('/surveycompleted');
+        localStorage.setItem('surveyShown_1', true);
         return (<div>
           <VerticalAlignMiddleSpan><FormattedMessage {...messages.ThankYou} /></VerticalAlignMiddleSpan>
         </div>);

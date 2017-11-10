@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "What Should I Eat?",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Discover what to eat with a new tab",
   "short_name": "What Should I Eat?",  
   "chrome_url_overrides": {
@@ -13,6 +13,6 @@
    "48": "48x48.png",
    "128": "128x128.png" 
  },
- "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://www.google-analytics.com https://ssl.google-analytics.com https://use.fontawesome.com https://embed.typeform.com; object-src 'self'",
+ "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://www.google-analytics.com https://ssl.google-analytics.com https://use.fontawesome.com https://embed.typeform.com https://static.hotjar.com https://insights.hotjar.com; object-src 'self'",
  "permissions": []
 }
