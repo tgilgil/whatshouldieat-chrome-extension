@@ -25,7 +25,7 @@ import { GoogleAnalytics } from 'utils/tracking';
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
 
-// Load the favicon, the manifest.json file and the .htaccess file
+// Load the logos and the manifest.json file
 /* eslint-disable import/no-unresolved, import/extensions */
 import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import '!file-loader?name=[name].[ext]!./images/android-chrome-144x144.png';
