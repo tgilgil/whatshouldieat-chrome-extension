@@ -46,8 +46,8 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
               <Col lg={6} lgOffset={6}>
                 { defineType(home.entry) }
                 {
-                  home.limitReached ? <LimitReachedPrompt />
-                                    : null
+                  // home.limitReached ? <LimitReachedPrompt />
+                  //                   : null
                 }
               </Col>
             </Row>
