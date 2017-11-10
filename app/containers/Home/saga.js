@@ -1,9 +1,9 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects';
 
 import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
-import { isWebVersion } from 'utils/globalHelpers';
+// import { isWebVersion } from 'utils/globalHelpers';
 import { LOAD_ENTRY } from './constants';
-import { entryLoaded, webVersionLimitReached, cookItPromoHasBeenDisplayed, displaySurvey } from './actions';
+import { entryLoaded, /* webVersionLimitReached, */cookItPromoHasBeenDisplayed, displaySurvey } from './actions';
 import EntriesService from './Entries/EntriesService';
 
 import * as api from './api';
@@ -22,9 +22,7 @@ export function* loadEntry(action) {
     entriesService = new EntriesService(response.items, null, locale);
   }
 
-  if (entriesService.isLimitReached && isWebVersion()) {
-    yield put(webVersionLimitReached(entriesService.lastSeen));
-  } else if (action.id) {
+  if (action.id) {
     yield put(entryLoaded(entriesService.get(action.id)));
   } else if (entriesService.shouldDisplayCookItPromo && locale === 'fr') {
     if (!cookItResponse || !cookItResponse.recipes) {
