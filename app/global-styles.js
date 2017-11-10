@@ -47,6 +47,28 @@ injectGlobal`
     min-width: 100%;
   }
 
+  #bg {
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    min-height: 100%;
+    min-width: 100%;
+    animation: fadein 4s linear forwards;
+  }
+
+  @keyframes fadein {
+    from { 
+      opacity: 0;
+      filter: blur(2px); 
+    }
+    to   { 
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
   p,
   label {
     font-family: 'Ubuntu Condensed', Helvetica, Arial, sans-serif;
