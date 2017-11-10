@@ -55,17 +55,37 @@ injectGlobal`
     left:0;
     min-height: 100%;
     min-width: 100%;
-    animation: fadein 4s linear forwards;
+    animation: fadein 2.25s linear forwards;
   }
 
   @keyframes fadein {
     from { 
       opacity: 0;
-      filter: blur(2px); 
+      filter: blur(50px); 
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      filter: blur(40px);
     }
     to   { 
       opacity: 1;
-      transform: scale(1.05);
+      filter : blur(0px);
+      /* transform: scale(1.05); */
+    }
+  }
+
+  @keyframes text-slide {
+    from {
+      margin-right: 300%;
+      margin-left: 0%;
+    }
+    90% {
+      margin-left: 0%;
+    }
+    to {
+      margin-right: 0%;
     }
   }
 
