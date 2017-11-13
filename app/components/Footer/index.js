@@ -8,6 +8,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import RefreshIndicator from 'material-ui/RefreshIndicator';
+
 import { FormattedMessage } from 'react-intl';
 import Survey from 'components/Survey';
 import messages from './messages';
@@ -31,33 +33,48 @@ const VerticalAlignMiddleSpan = styled.span`
   vertical-align: middle;
 `;
 
-// const CenteredRefreshButton = styled.div`
-//   clear: both;
-//   margin-left: 8em;
-//   width: 100px;
-//   height: 100px;
-//   background-color: white;
-//   height: 5em;
-//   border-radius: 50%;
-//   position: absolute;
-//   bottom: 1em;
-//   text-align: center;
-//   vertical-align: middle;
-//   line-height: -5.5em;
-// `;
+const RefreshIndicatorContainer = styled.div`
+`;
+
+const style = {
+  container: {
+    // position: 'relative',
+  },
+  refresh: {
+    margin: '0 auto',
+    marginLeft: '50%',
+    verticalAlignment: 'initial',
+    boxShadow: 'none',
+  },
+};
 
 class Footer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const locale = this.props.currentLocale;
 
+    const activateRefreshButton = false;
+
     return (
       <footer className="footer">
-        <div className="left" style={{ }}>
+        <div className="left">
           <VerticalAlignMiddleA style={(locale === 'fr' ? selected : unselected)} onClick={() => this.props.changeLanguage('fr')} href="#lang">FR</VerticalAlignMiddleA>
           <VerticalAlignMiddleA style={(locale === 'en' ? selected : unselected)} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
         </div>
 
-        {/* <CenteredRefreshButton><i className="fa fa-refresh fa-6"></i></CenteredRefreshButton> */}
+        {
+          activateRefreshButton
+          ? <RefreshIndicatorContainer style={style.container}>
+            <RefreshIndicator
+              percentage={100}
+              size={80}
+              left={-40}
+              top={-40}
+              status="ready"
+              style={style.refresh}
+            />
+          </RefreshIndicatorContainer>
+          : null
+        }
 
         <div className="right">
           {

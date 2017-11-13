@@ -18,7 +18,6 @@ import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
 import Shareable from 'components/Shareable';
 import Recipe from 'components/Recipe';
 import Footer from 'components/Footer';
-// import LimitReachedPrompt from './LimitReachedPrompt';
 import { loadEntry, goToSurveyStep, cancelSurvey as cancelSurveyAction } from './actions';
 import makeSelectHome from './selectors';
 import reducer from './reducer';
@@ -45,10 +44,6 @@ export class Home extends React.Component { // eslint-disable-line react/prefer-
             <Row className="content-row">
               <Col lg={6} lgOffset={6}>
                 { defineType(home.entry) }
-                {
-                  // home.limitReached ? <LimitReachedPrompt />
-                  //                   : null
-                }
               </Col>
             </Row>
             <Footer

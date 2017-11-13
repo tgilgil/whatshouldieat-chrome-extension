@@ -24,11 +24,10 @@ const StyledIframe = styled.iframe`
   border: none;
   width: 100%;
   min-height: 400px;
-  overflow: hidden;
 `;
 
 const PositiveFrenchSurveyUrl = 'https://travis139.typeform.com/to/GWHqNz';
-const PositiveEnglishSurveyUrl = 'https://travis139.typeform.com/to/c45lyJ';
+const PositiveEnglishSurveyUrl = 'https://aligilgil1gmailcom.typeform.com/to/OXfBfA';
 
 const NegativeFrenchSurveyUrl = 'https://travis139.typeform.com/to/fTy2CL';
 const NegativeEnglishSurveyUrl = 'https://travis139.typeform.com/to/Mepb8J';
@@ -93,7 +92,7 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
             bodyStyle={{ minHeight: '400px' }}
             contentStyle={{ minHeight: '400px' }}
           >
-            <StyledIframe title="survey" src={localizedPositiveSurveyUrl} scrolling="no"></StyledIframe>
+            <StyledIframe title="survey" src={localizedPositiveSurveyUrl} ></StyledIframe>
           </Dialog>
         </div>);
       }
