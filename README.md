@@ -3,3 +3,5 @@
 This is the v2 of the What Should I Eat? chrome extension.
 
 Built with React + Redux.
+
+[Bookmarklets for feature activation](BOOKMARKLETS.md)
