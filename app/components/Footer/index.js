@@ -8,10 +8,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import RefreshIndicator from 'material-ui/RefreshIndicator';
-
 import { FormattedMessage } from 'react-intl';
 import Survey from 'components/Survey';
+import RefreshAction from 'components/RefreshAction';
 import messages from './messages';
 
 const selected = {
@@ -33,26 +32,9 @@ const VerticalAlignMiddleSpan = styled.span`
   vertical-align: middle;
 `;
 
-const RefreshIndicatorContainer = styled.div`
-`;
-
-const style = {
-  container: {
-    // position: 'relative',
-  },
-  refresh: {
-    margin: '0 auto',
-    marginLeft: '50%',
-    verticalAlignment: 'initial',
-    boxShadow: 'none',
-  },
-};
-
 class Footer extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
     const locale = this.props.currentLocale;
-
-    const activateRefreshButton = false;
 
     return (
       <footer className="footer">
@@ -61,20 +43,7 @@ class Footer extends React.PureComponent { // eslint-disable-line react/prefer-s
           <VerticalAlignMiddleA style={(locale === 'en' ? selected : unselected)} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
         </div>
 
-        {
-          activateRefreshButton
-          ? <RefreshIndicatorContainer style={style.container}>
-            <RefreshIndicator
-              percentage={100}
-              size={80}
-              left={-40}
-              top={-40}
-              status="ready"
-              style={style.refresh}
-            />
-          </RefreshIndicatorContainer>
-          : null
-        }
+        <RefreshAction loading={this.props.loading} start={this.props.startRefresh} activate={localStorage.getItem('activate_RefreshAction') === 'true'} />
 
         <div className="right">
           {
@@ -98,6 +67,8 @@ Footer.propTypes = {
   surveyStep: PropTypes.number,
   goToStep: PropTypes.func,
   cancelSurvey: PropTypes.func,
+  startRefresh: PropTypes.func,
+  loading: PropTypes.bool,
 };
 
 export default Footer;

@@ -14,6 +14,8 @@ import {
   DISPLAY_SURVEY,
   CANCEL_SURVEY,
   GO_TO_NEXT_SURVEY_STEP,
+  STOP_REFRESH,
+  REFRESH_STARTED,
 } from './constants';
 
 const initialState = fromJS({
@@ -21,6 +23,7 @@ const initialState = fromJS({
   limitReached: false,
   showSurvey: false,
   surveyStep: 1,
+  refreshLoading: false,
 });
 
 function homeReducer(state = initialState, action) {
@@ -53,6 +56,14 @@ function homeReducer(state = initialState, action) {
 
     case GO_TO_NEXT_SURVEY_STEP: {
       return state.set('surveyStep', action.step);
+    }
+
+    case REFRESH_STARTED: {
+      return state.set('refreshLoading', true);
+    }
+
+    case STOP_REFRESH: {
+      return state.set('refreshLoading', false);
     }
 
     default:

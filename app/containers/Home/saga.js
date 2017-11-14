@@ -1,14 +1,14 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects';
+// import { delay } from 'redux-saga';
 
 import { makeSelectLocale } from 'containers/LanguageProvider/selectors';
-// import { isWebVersion } from 'utils/globalHelpers';
-import { LOAD_ENTRY } from './constants';
-import { entryLoaded, displaySurvey } from './actions';
+import { LOAD_ENTRY, START_REFRESH } from './constants';
+import { entryLoaded, displaySurvey, stopRefresh, refreshStarted, loadEntry } from './actions';
 import EntriesService from './Entries/EntriesService';
 
 import * as api from './api';
 
-export function* loadEntry(action) {
+export function* loadEntrySaga(action) {
   const locale = yield select(makeSelectLocale());
   const response = yield call(api.fetchEntries);
 
@@ -22,8 +22,22 @@ export function* loadEntry(action) {
   }
 }
 
+export function* startRefreshSaga() {
+  yield put(refreshStarted());
+
+  yield put(loadEntry());
+  yield call(delay, 1000);
+
+  yield put(stopRefresh());
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(() => resolve(true), ms));
+}
+
 export default function* rootSaga() {
   yield [
-    takeLatest(LOAD_ENTRY, loadEntry),
+    takeLatest(LOAD_ENTRY, loadEntrySaga),
+    takeLatest(START_REFRESH, startRefreshSaga),
   ];
 }

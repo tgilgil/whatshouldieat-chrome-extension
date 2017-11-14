@@ -56,6 +56,7 @@ injectGlobal`
     min-height: 100%;
     min-width: 100%;
     animation: fadein 2.25s linear forwards;
+    transition: background-image 2.25s fadein;
   }
 
   @keyframes fadein {

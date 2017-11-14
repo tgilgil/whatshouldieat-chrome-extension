@@ -15,3 +15,6 @@ export const DISPLAY_SURVEY = 'app/Home/DISPLAY_SURVEY';
 export const CANCEL_SURVEY = 'app/Home/CANCEL_SURVEY';
 export const GO_TO_NEXT_SURVEY_STEP = 'app/Home/GO_TO_NEXT_SURVEY_STEP';
 
+export const START_REFRESH = 'app/Home/START_REFRESH';
+export const REFRESH_STARTED = 'app/Home/REFRESH_STARTED';
+export const STOP_REFRESH = 'app/Home/STOP_REFRESH';

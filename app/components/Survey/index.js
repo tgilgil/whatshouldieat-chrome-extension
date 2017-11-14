@@ -23,7 +23,8 @@ const VerticalAlignMiddleSpan = styled.span`
 const StyledIframe = styled.iframe`
   border: none;
   width: 100%;
-  min-height: 400px;
+  min-height: 500px;
+  padding-top: -8em;
 `;
 
 const PositiveFrenchSurveyUrl = 'https://travis139.typeform.com/to/GWHqNz';
@@ -74,10 +75,10 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
             actions={<SurveyButton onClick={() => this.props.goToStep(6)}><FormattedMessage {...messages.Close} /></SurveyButton>}
             modal
             open
-            bodyStyle={{ minHeight: '400px' }}
-            contentStyle={{ minHeight: '400px' }}
+            bodyStyle={{ minHeight: '500px' }}
+            contentStyle={{ minHeight: '500px' }}
           >
-            <StyledIframe title="survey" src={localizedNegativeSurveyUrl} scrolling="no"></StyledIframe>
+            <StyledIframe title="survey" src={localizedNegativeSurveyUrl}></StyledIframe>
           </Dialog>
         </div>);
       }
@@ -89,10 +90,10 @@ class Survey extends React.Component { // eslint-disable-line react/prefer-state
             actions={<SurveyButton onClick={() => this.props.goToStep(6)}><FormattedMessage {...messages.Close} /></SurveyButton>}
             modal
             open
-            bodyStyle={{ minHeight: '400px' }}
-            contentStyle={{ minHeight: '400px' }}
+            bodyStyle={{ minHeight: '500px' }}
+            contentStyle={{ minHeight: '500px' }}
           >
-            <StyledIframe title="survey" src={localizedPositiveSurveyUrl} ></StyledIframe>
+            <StyledIframe title="survey" src={localizedPositiveSurveyUrl}></StyledIframe>
           </Dialog>
         </div>);
       }
