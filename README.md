@@ -14,13 +14,16 @@ Install dependencies
 ```
 yarn
 ```
-
-Build
+Build 
 ```
 yarn run build
 ```
 
-Load unpacked extension (`chrome://extensions/`) and set the outputed _/build_ folder as source  
+Load unpacked extension (`chrome://extensions/`) and set the outputed _/build_ folder as source.
+
+**or**
+
+Alternativaly, you can simply run `yarn start` and run it directly on your browser.
 
 ## Misc.
 
