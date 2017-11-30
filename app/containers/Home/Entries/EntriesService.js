@@ -67,7 +67,8 @@ class EntriesService {
   }
 
   verifyIfSurveyShouldBeShown() {
-    return this.alreadySeen.length > 10 && localStorage.getItem('surveyShown_1') === 'false';
+    const surveyShown = localStorage.getItem('surveyShown_1');
+    return this.alreadySeen.length > 10 && (surveyShown === 'false' || surveyShown === null);
   }
 
   notSeen() {
