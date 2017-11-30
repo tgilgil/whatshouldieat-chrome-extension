@@ -68,7 +68,7 @@ class EntriesService {
 
   verifyIfSurveyShouldBeShown() {
     const surveyShown = localStorage.getItem('surveyShown_1');
-    return this.alreadySeen.length > 10 && (surveyShown === 'false' || surveyShown === null);
+    return this.alreadySeen.length > 20 && (surveyShown === 'false' || surveyShown === null);
   }
 
   notSeen() {
