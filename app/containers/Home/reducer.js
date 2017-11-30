@@ -13,11 +13,9 @@ import {
   ENTRY_LOADED,
   WEB_VERSION_LIMIT_REACHED,
   COOKIT_PROMO_HAS_BEEN_DISPLAYED,
-  DISPLAY_SURVEY,
-  CANCEL_SURVEY,
-  GO_TO_NEXT_SURVEY_STEP,
-  STOP_REFRESH,
-  REFRESH_STARTED,
+  DISPLAY_SURVEY, CANCEL_SURVEY, GO_TO_NEXT_SURVEY_STEP,
+  STOP_REFRESH, REFRESH_STARTED,
+  MOUSE_OUT_REFRESH, MOUSE_OVER_REFRESH,
 } from './constants';
 
 const initialState = fromJS({
@@ -26,6 +24,7 @@ const initialState = fromJS({
   showSurvey: false,
   surveyStep: 1,
   refreshLoading: false,
+  refreshAnimationClasses: '',
 });
 
 function homeReducer(state = initialState, action) {
@@ -67,6 +66,14 @@ function homeReducer(state = initialState, action) {
 
     case STOP_REFRESH: {
       return state.set('refreshLoading', false);
+    }
+
+    case MOUSE_OVER_REFRESH: {
+      return state.set('refreshAnimationClasses', 'pulse2');
+    }
+
+    case MOUSE_OUT_REFRESH: {
+      return state.set('refreshAnimationClasses', '');
     }
 
     default:

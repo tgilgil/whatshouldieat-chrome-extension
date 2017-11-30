@@ -75,6 +75,20 @@ injectGlobal`
     }
   }
 
+  .pulse2 {
+    animation-name: pulse_animation;
+    animation-duration: 5000ms;
+    transform-origin:70% 70%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes pulse_animation {
+    to {
+      transform: scale(1.05); 
+    }
+  }
+
   @keyframes text-slide {
     from {
       margin-right: 300%;

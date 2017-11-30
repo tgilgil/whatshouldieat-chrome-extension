@@ -212,6 +212,7 @@
     "testRegex": "tests/.*\\.test\\.js$"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "axios": "^0.17.0",
     "babel-polyfill": "6.23.0",
     "chalk": "^1.1.3",

@@ -15,6 +15,8 @@ import {
   START_REFRESH,
   STOP_REFRESH,
   REFRESH_STARTED,
+  MOUSE_OUT_REFRESH,
+  MOUSE_OVER_REFRESH,
 } from './constants';
 
 export function loadEntry(id) {
@@ -78,5 +80,17 @@ export function refreshStarted() {
 export function stopRefresh() {
   return {
     type: STOP_REFRESH,
+  };
+}
+
+export function mouseOverRefresh() {
+  return {
+    type: MOUSE_OVER_REFRESH,
+  };
+}
+
+export function mouseOutRefresh() {
+  return {
+    type: MOUSE_OUT_REFRESH,
   };
 }

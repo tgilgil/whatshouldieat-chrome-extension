@@ -43,7 +43,14 @@ class Footer extends React.PureComponent { // eslint-disable-line react/prefer-s
           <VerticalAlignMiddleA style={(locale === 'en' ? selected : unselected)} onClick={() => this.props.changeLanguage('en')} href="#lang">EN</VerticalAlignMiddleA>
         </div>
 
-        <RefreshAction loading={this.props.loading} start={this.props.startRefresh} activate={localStorage.getItem('activate_RefreshAction') === 'true'} />
+        <RefreshAction
+          onHoverIn={this.props.refreshOptions.animateRefresh}
+          onHoverOut={this.props.refreshOptions.stopRefreshAnimation}
+          onHoverStyle={this.props.refreshOptions.onHoverStyle}
+          loading={this.props.refreshOptions.loading}
+          start={this.props.refreshOptions.startRefresh}
+          activate={localStorage.getItem('activate_RefreshAction') === 'true'}
+        />
 
         <div className="right">
           {
@@ -67,8 +74,7 @@ Footer.propTypes = {
   surveyStep: PropTypes.number,
   goToStep: PropTypes.func,
   cancelSurvey: PropTypes.func,
-  startRefresh: PropTypes.func,
-  loading: PropTypes.bool,
+  refreshOptions: PropTypes.any.isRequired,
 };
 
 export default Footer;

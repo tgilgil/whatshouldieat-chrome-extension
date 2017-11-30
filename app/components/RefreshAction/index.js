@@ -37,6 +37,9 @@ class RefreshAction extends React.Component { // eslint-disable-line react/prefe
             top={-40}
             status={this.props.loading ? 'loading' : 'ready'}
             style={style.refresh}
+            className={this.props.onHoverStyle}
+            onMouseEnter={this.props.onHoverIn}
+            onMouseLeave={this.props.onHoverOut}
           />
         </RefreshIndicatorContainer>
       )
@@ -50,6 +53,9 @@ RefreshAction.propTypes = {
   activate: PropTypes.bool.isRequired,
   start: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  onHoverIn: PropTypes.func.isRequired,
+  onHoverOut: PropTypes.func.isRequired,
+  onHoverStyle: PropTypes.string.isRequired,
 };
 
 export default RefreshAction;
