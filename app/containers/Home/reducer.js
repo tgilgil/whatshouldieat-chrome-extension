@@ -7,6 +7,8 @@
 import { fromJS } from 'immutable';
 import moment from 'moment';
 
+import { resetAnimation } from 'utils/animations';
+
 import {
   ENTRY_LOADED,
   WEB_VERSION_LIMIT_REACHED,
@@ -59,6 +61,7 @@ function homeReducer(state = initialState, action) {
     }
 
     case REFRESH_STARTED: {
+      resetAnimation();
       return state.set('refreshLoading', true);
     }
 

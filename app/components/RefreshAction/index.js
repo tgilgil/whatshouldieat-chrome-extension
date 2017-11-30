@@ -29,7 +29,7 @@ class RefreshAction extends React.Component { // eslint-disable-line react/prefe
   render() {
     const toRender = this.props.activate
       ? (
-        <RefreshIndicatorContainer onClick={() => this.props.start()} style={style.container}>
+        <RefreshIndicatorContainer id="RefreshButton" onClick={() => this.props.start()} style={style.container}>
           <RefreshIndicator
             percentage={100}
             size={80}

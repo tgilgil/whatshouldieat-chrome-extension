@@ -51,6 +51,10 @@ h3 {
     display: none;
   }
 
+  #RefreshButton {
+    display: none;
+  }
+
   .footer {
     text-align: center;
   }
