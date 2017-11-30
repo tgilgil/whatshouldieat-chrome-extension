@@ -23,7 +23,7 @@ Load unpacked extension (`chrome://extensions/`) and set the outputed _/build_ f
 
 **or**
 
-Alternativaly, you can simply run `yarn start` and run it directly on your browser.
+Alternativaly, you can simply run `yarn start` and run it directly through `localhost:PORT`.
 
 ## Misc.
 
