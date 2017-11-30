@@ -3,7 +3,17 @@
   "app.components.Footer.share": "Share",
   "app.components.Recipe.preparationTime": "Execution Time",
   "app.components.Recipe.seeFullRecipe": "See full recipe",
+  "app.components.RefreshAction.header": "This is the RefreshAction component !",
   "app.components.Shareable.header": "This is the Shareable component !",
+  "app.components.Survey.CallToActionNegative": "Would you mind giving us some feedback?",
+  "app.components.Survey.CallToActionPositive": "How about completing a <strong>2 minutes</strong> survey?",
+  "app.components.Survey.Close": "Close",
+  "app.components.Survey.EnjoyingYourExperience": "Enjoying your experience?",
+  "app.components.Survey.NegativeResponse1": "Not Really",
+  "app.components.Survey.NegativeResponse2": "No Thanks",
+  "app.components.Survey.PositiveResponse1": "Yes!",
+  "app.components.Survey.PositiveResponse2": "Sure!",
+  "app.components.Survey.ThankYou": "Thank you 💙",
   "app.containers.Home.lightspeedturtle": "An initiative of ",
   "app.containers.Home.share": "Share"
 }

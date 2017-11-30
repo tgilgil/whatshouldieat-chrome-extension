@@ -27,11 +27,11 @@ const StyledIframe = styled.iframe`
   padding-top: -8em;
 `;
 
-const PositiveFrenchSurveyUrl = 'https://travis139.typeform.com/to/GWHqNz';
+const PositiveFrenchSurveyUrl = 'https://aligilgil1gmailcom.typeform.com/to/n4JF4C';
 const PositiveEnglishSurveyUrl = 'https://aligilgil1gmailcom.typeform.com/to/OXfBfA';
 
-const NegativeFrenchSurveyUrl = 'https://travis139.typeform.com/to/fTy2CL';
-const NegativeEnglishSurveyUrl = 'https://travis139.typeform.com/to/Mepb8J';
+const NegativeFrenchSurveyUrl = 'https://aligilgil1gmailcom.typeform.com/to/j2vyIL';
+const NegativeEnglishSurveyUrl = 'https://aligilgil1gmailcom.typeform.com/to/oGmTlb';
 
 class Survey extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {

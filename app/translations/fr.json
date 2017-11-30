@@ -3,7 +3,17 @@
   "app.components.Footer.share": "Partagez",
   "app.components.Recipe.preparationTime": "Temps d'exécution",
   "app.components.Recipe.seeFullRecipe": "Voir la recette",
+  "app.components.RefreshAction.header": "",
   "app.components.Shareable.header": "",
+  "app.components.Survey.CallToActionNegative": "Pourriez-vous nous laisser un commentaire ?",
+  "app.components.Survey.CallToActionPositive": "Voulez-vous compléter un sondage de <strong>2 minutes</strong> ?",
+  "app.components.Survey.Close": "Fermer",
+  "app.components.Survey.EnjoyingYourExperience": "Aimez-vous votre expérience?",
+  "app.components.Survey.NegativeResponse1": "Pas vraiment",
+  "app.components.Survey.NegativeResponse2": "Non merci",
+  "app.components.Survey.PositiveResponse1": "Oui !",
+  "app.components.Survey.PositiveResponse2": "Bien sûr !",
+  "app.components.Survey.ThankYou": "Merci 💙",
   "app.containers.Home.lightspeedturtle": "Une initiative de ",
   "app.containers.Home.share": "Partagez"
 }
